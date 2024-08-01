@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Sublist3r',
-    version='1.1',
+    name='sublist3r',
+    version='2.0',
     python_requires='>=2.7',
     install_requires=['dnspython', 'requests', 'argparse; python_version==\'2.7\''],
     packages=find_packages()+['.'],
