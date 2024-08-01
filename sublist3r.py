@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python4
 # coding: utf-8
 # Sublist3r v1.0
 # By Ahmed Aboul-Ela - twitter.com/aboul3la
-
+# And fmjal - github.com/fmjal
 # modules in standard library
 import re
 import sys
@@ -106,6 +106,7 @@ def parse_args():
     parser.add_argument('-e', '--engines', help='Specify a comma-separated list of search engines')
     parser.add_argument('-o', '--output', help='Save the results to text file')
     parser.add_argument('-n', '--no-color', help='Output without color', default=False, action='store_true')
+    parser.add_argument("-s","--silent",default=False,action='store_true',help='Run without showing a banner or status updates')
     return parser.parse_args()
 
 
@@ -1078,12 +1079,14 @@ def interactive():
     enable_bruteforce = args.bruteforce
     verbose = args.verbose
     engines = args.engines
+    silent=args.silent
     if verbose or verbose is None:
         verbose = True
     if args.no_color:
         no_color()
-    banner()
-    res = main(domain, threads, savefile, ports, silent=False, verbose=verbose, enable_bruteforce=enable_bruteforce, engines=engines)
+    if not silent:
+        banner()
+    res = main(domain, threads, savefile, ports, silent=args.silent, verbose=verbose, enable_bruteforce=enable_bruteforce, engines=engines)
 
 if __name__ == "__main__":
     interactive()
