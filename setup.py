@@ -4,7 +4,7 @@ setup(
     name='Sublist3r',
     version='2.1',
     python_requires='>=3.10',
-    install_requires=['dnspython', 'requests', 'argparse; python_version==\'3.10\''],
+    install_requires=['bs4','dnspython', 'requests', 'argparse; python_version==\'3.10\''],
     packages=find_packages()+['.'],
     include_package_data=True,
     url='https://github.com/fmjal/Sublist3r',
